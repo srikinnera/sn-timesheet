@@ -16,7 +16,7 @@ export const TimePicker = ({field}: {field: ControllerRenderProps<TimeSheetForm,
                     field.onChange(value);
                  }
                 }
-                format="mm:ss"
+                format="mm"
             />
         </LocalizationProvider>
         </TimePickerContainer>
