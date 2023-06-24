@@ -1,9 +1,10 @@
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
+import { ControllerRenderProps } from 'react-hook-form';
 import { RateContainer } from './styled';
+import { TimeSheetForm } from '../../types';
 
-
-export const Rate = ({field}: {field: any}):JSX.Element => {
+export const Rate = ({field}: {field: ControllerRenderProps<TimeSheetForm, `TimesheetForm.${number}.Rate`>}):JSX.Element => {
     return(
         <RateContainer>
              <TextField

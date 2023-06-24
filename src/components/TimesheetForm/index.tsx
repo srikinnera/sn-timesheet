@@ -2,6 +2,7 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import { useState } from 'react';
 import dayjs, { type Dayjs } from 'dayjs';
 import { useForm, Controller, useFieldArray } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,6 +15,8 @@ import {TimeSheetForm} from '../../types';
 
 
 export const TimesheetForm = ():JSX.Element => {
+    const [description, setDescription] = useState<string>('');
+
     const schema = z.object({
         TimesheetForm: z.array(z.object({
             Date: z.instanceof(dayjs as unknown as typeof Dayjs, {message: 'Enter date in correct format'}),
@@ -29,15 +32,14 @@ export const TimesheetForm = ():JSX.Element => {
         control,
         name: "TimesheetForm"
     })
-    console.log('error', errors)
     return(
         <FormContainer>
         <h1>Timesheet</h1>
         <TextField
                 id="description"
                 label="Description"
-                value=""
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {}}
+                value={description}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setDescription(event?.target.value)}}
         />
         <Form onSubmit={handleSubmit((data: any) => console.log(data))}>
             {fields.map((item, index) => {
