@@ -2,7 +2,7 @@ import { Dayjs } from 'dayjs';
 import {TimeSheetResponseType, PostTimeSheetType} from '../types';
 
 export const fetchTimesheets = async(id: number, date: Dayjs):Promise<TimeSheetResponseType[]> => {
-        const dateToFetch = date.toISOString().slice(0,19);
+        const dateToFetch = date.format("YYYY-MM-DD");
         const response = await fetch(`http://localhost:8080/timesheets/${id}/${dateToFetch}`, {method : 'GET'})
         if(!response?.ok) throw new Error(response.statusText);
         return response.json() as Promise<TimeSheetResponseType[]>;

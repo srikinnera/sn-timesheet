@@ -16,7 +16,6 @@ import { DateContainer } from "./styled"
 export const ViewTimesheet = ():JSX.Element => {
     const [selectedDate, setSelectedDate] = useState<Dayjs>(dayjs());
     const { data } = useGetTimesheets(1, selectedDate); 
-    console.log('rows', data)
     const rows = data || []
     return (
       <>
