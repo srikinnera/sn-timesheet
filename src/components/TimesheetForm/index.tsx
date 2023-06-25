@@ -1,3 +1,4 @@
+import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -11,7 +12,7 @@ import { DatePicker } from "../DatePicker";
 import { Rate } from "../Rate";
 import { TimePicker } from "../TimePicker"
 import { TotalsFooter } from '../TotalsFooter';
-import {Row, FormContainer, SubmitButton, Form, FormItem, ErrorMessage} from './styled';
+import {Row, FormContainer, SubmitButton, Form, FormItem, ErrorMessage, FormElements} from './styled';
 import {TimeSheetForm} from '../../types';
 
 
@@ -49,13 +50,17 @@ export const TimesheetForm = ():JSX.Element => {
     return(
         <FormContainer>
         <h1>Timesheet</h1>
+        <FormElements>
         <TextField
                 id="description"
                 label="Description"
                 value={description}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setDescription(event?.target.value)}}
+                style={{'margin': '10px 0 0 0'}}
         />
         <Rate handleRateChange={handleRateChange} />
+        </FormElements>
+        <Card>
         <Form onSubmit={handleSubmit((data: any) => console.log(data))}>
             {fields.map((item, index) => {
                 const errorObj = errors && errors.TimesheetForm ? errors.TimesheetForm[0] : {};
@@ -92,7 +97,8 @@ export const TimesheetForm = ():JSX.Element => {
         )}
         <SubmitButton type="submit">Save</SubmitButton>
       </Form>
-      <TotalsFooter values={watchAllFields} rate={rate}/>
+      </Card>
+        <TotalsFooter values={watchAllFields} rate={rate}/>
       </FormContainer>
     )
 }

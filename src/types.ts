@@ -8,3 +8,12 @@ export type TimeSheetFormInput = {
 export type TimeSheetForm = {
     TimesheetForm: TimeSheetFormInput[];
 }
+
+export type TimeSheetResponseType = {
+    id: number;
+    user_id: string;
+    date: string;
+    time: string;
+    rate: number;
+    description: string;
+}

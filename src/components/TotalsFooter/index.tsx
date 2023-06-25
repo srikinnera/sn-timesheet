@@ -1,5 +1,6 @@
 import {TotalsContainer} from './styled'
 import { TimeSheetForm } from "../../types"
+import { Typography } from '@mui/material';
 
 export const TotalsFooter = ({values, rate}: {values: TimeSheetForm, rate:number}):JSX.Element => {
     const {TimesheetForm} = values;
@@ -15,12 +16,12 @@ export const TotalsFooter = ({values, rate}: {values: TimeSheetForm, rate:number
 
     return (
         <TotalsContainer>
-        <h1>
+        <Typography sx={{ fontSize: 24 }}>
             Total Time: {totalTime}
-        </h1>
-        <h1>
+        </Typography>
+        <Typography sx={{ fontSize: 24 }}>
             Total Cost: {totalCost}
-        </h1>
+        </Typography>
         </TotalsContainer>
     )
 }

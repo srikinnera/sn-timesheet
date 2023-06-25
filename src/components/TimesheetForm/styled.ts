@@ -10,6 +10,7 @@ export const Row = styled.div`
 `;
 
 export const FormContainer = styled.div`
+    margin: 30px;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -18,9 +19,9 @@ export const FormContainer = styled.div`
 export const SubmitButton = styled.button`
     width: 200px;
     position: absolute;
-    left: 44%;
+    left: 37%;
     height: 50px;
-    margin: 10px;
+    margin: 25px 10px 10px 10px;
     background-color: green;
     color: white;
     border: none;
@@ -39,4 +40,10 @@ export const ErrorMessage = styled.p`
     margin: 0 0 0 10px;
     word-wrap: break-word;
     width: 75%
+`;
+
+export const FormElements = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 `;
