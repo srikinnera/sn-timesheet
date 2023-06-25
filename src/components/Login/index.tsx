@@ -19,11 +19,11 @@ const Login = ({setToken}: {setToken: React.Dispatch<React.SetStateAction<string
           <LoginForm onSubmit={handleSubmit}>
             <label>
               <p>Username</p>
-              <FormInput type="text" onChange={e => setUserName(e.target.value)}/>
+              <FormInput type="text" onChange={e => setUserName(e.target.value)} />
             </label>
             <label>
               <p>Password</p>
-              <FormInput type="password" onChange={e => setPassword(e.target.value)}/>
+              <FormInput type="password" onChange={e => setPassword(e.target.value)} />
             </label>
             <div>
               <SubmitButton type="submit">Submit</SubmitButton>

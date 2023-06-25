@@ -28,6 +28,9 @@ export const SubmitButton = styled.button`
     border-radius: 5px;
     font-weight: 600;
     text-transform: uppercase;
+    &:hover{
+        cursor: pointer;
+    }
 `;
 
 export const FormItem = styled.div`

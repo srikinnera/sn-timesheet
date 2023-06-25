@@ -15,7 +15,7 @@ export const Rate = ({handleRateChange}: {handleRateChange: (amount:number) => v
                     }
                 }}
                 InputProps={{
-                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>
                 }}
                 type='number'
             />

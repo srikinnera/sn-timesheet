@@ -5,7 +5,7 @@ import { ControllerRenderProps } from 'react-hook-form';
 import {DatePickerContainer} from './styled'
 import { TimeSheetForm } from '../../types';
 
-export const DatePicker = ({field}: {field: ControllerRenderProps<TimeSheetForm, `TimesheetForm.${number}.Date`>}):JSX.Element => {
+export const DatePicker = ({field}: {field: ControllerRenderProps<TimeSheetForm, `timesheetForm.${number}.date`>}):JSX.Element => {
     return (
         <DatePickerContainer>
             <LocalizationProvider dateAdapter={AdapterDayjs}>

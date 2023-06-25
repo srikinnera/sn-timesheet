@@ -3,10 +3,10 @@ import { TimeSheetForm } from "../../types"
 import { Typography } from '@mui/material';
 
 export const TotalsFooter = ({values, rate}: {values: TimeSheetForm, rate:number}):JSX.Element => {
-    const {TimesheetForm} = values;
+    const {timesheetForm} = values;
     
-    let totalTime = TimesheetForm.reduce((prev, curr) => {
-        let time = curr.Time;
+    let totalTime = timesheetForm.reduce((prev, curr) => {
+        let time = curr.time;
         if(time)
             return prev + time.get('minute');
         return prev
