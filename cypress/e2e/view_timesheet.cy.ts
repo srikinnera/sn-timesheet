@@ -1,8 +1,8 @@
 describe('View Timesheet', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000/view');
-      cy.get("#username").type('sri nanduri');
-      cy.get('#password').type('snTimesheet');
+      cy.get("#username").type('john.doe@example.com');
+      cy.get('#password').type('password123');
       cy.get('button').click();
     });
 

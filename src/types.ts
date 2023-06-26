@@ -30,3 +30,12 @@ export type PostTimeSheetType = {
     user_id: number;
     timesheetForm: TimeSheetFormOutput[];
 }
+
+export type UserInfoType = {
+    email: string;
+    password: string;
+}
+
+export type AccessTokenObj = {
+    access_token: string;
+}

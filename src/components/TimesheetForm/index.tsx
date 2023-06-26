@@ -7,7 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import dayjs, { type Dayjs } from 'dayjs';
 import { useForm, Controller, useFieldArray } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,7 +17,7 @@ import { Rate } from "../Rate";
 import { TimePicker } from "../TimePicker"
 import { TotalsFooter } from '../TotalsFooter';
 import {Row, FormContainer, SubmitButton, Form, FormItem, ErrorMessage, FormElements} from './styled';
-import {TimeSheetForm,PostTimeSheetType} from '../../types';
+import {TimeSheetForm } from '../../types';
 import { saveTimesheet } from '../../services';
 
 

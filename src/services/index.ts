@@ -1,5 +1,5 @@
 import { Dayjs } from 'dayjs';
-import {TimeSheetResponseType, PostTimeSheetType} from '../types';
+import {TimeSheetResponseType, PostTimeSheetType, UserInfoType, AccessTokenObj} from '../types';
 
 export const fetchTimesheets = async(id: number, date: Dayjs):Promise<TimeSheetResponseType[]> => {
         const dateToFetch = date.format("YYYY-MM-DD");
@@ -16,4 +16,16 @@ export const saveTimesheet = async(data: PostTimeSheetType):Promise<Response> =>
                 },
                 body: JSON.stringify(data)
         });
+}
+
+export const loginUser = async(userObj: UserInfoType):Promise<AccessTokenObj> =>{
+        const response = await fetch(`http://localhost:8080/auth/login`, {
+                method : 'POST', 
+                headers: {
+                        "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userObj)
+        });
+        if(!response?.ok) throw new Error(response.statusText);
+        return response.json() as Promise<AccessTokenObj>
 }

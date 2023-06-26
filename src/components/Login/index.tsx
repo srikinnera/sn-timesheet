@@ -1,16 +1,16 @@
 import { useState, FormEvent } from 'react';
+import { UseMutateFunction} from 'react-query'
 import { LoginWrapper, LoginForm, SubmitButton, FormInput, LoginContainer } from './styled';
+import { UserInfoType, AccessTokenObj } from '../../types';
 
-const Login = ({setToken}: {setToken: React.Dispatch<React.SetStateAction<string>>}):JSX.Element => {
+const Login = ({mutateMethod}: {mutateMethod: UseMutateFunction<AccessTokenObj, unknown, UserInfoType, unknown>}):JSX.Element => {
     const [username, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement> ) => {
-        e.preventDefault();
-        const token = 'set some token here';
-        // call fetch and pass username and password
-        setToken(token);
-      }
+   const handleSubmit = async (e: FormEvent<HTMLFormElement> ) => {
+    e.preventDefault();
+      mutateMethod({email: username, password});
+  }
 
     return(
       <LoginContainer>

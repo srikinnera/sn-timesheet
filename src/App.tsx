@@ -1,35 +1,40 @@
-import {useEffect, useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {  QueryClient,
-  QueryClientProvider,
+  useMutation
 } from 'react-query'
 import Home from './components/Home'
 import Login from './components/Login'
 import ViewTimesheet from './components/ViewTimesheet';
 import './App.css';
+import { loginUser } from './services';
 
 const queryClient = new QueryClient()
 
 function App() {
-  const [token, setToken] = useState<string>('');
-
-  useEffect(() => {
-    if(token !== sessionStorage.getItem('token'))
-      sessionStorage.setItem('token', token);
-  },[token])
+  const token = sessionStorage.getItem('token');
+  const { mutate } = useMutation(loginUser, {
+    onSuccess: data => {
+      console.log(data)
+      sessionStorage.setItem('token', data.access_token)
+  },
+   onError: () => {
+        alert("login error")
+ },
+   onSettled: () => {
+      queryClient.invalidateQueries('login')
+ }
+ });
   
   if(!token){
-    return <Login setToken={setToken} />
+    return <Login  mutateMethod={mutate} />
   }
   return (
     <div className="wrapper">
       <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/view" element={<ViewTimesheet />} />
         </Routes>
-        </QueryClientProvider>
       </BrowserRouter>
     </div>
   );
