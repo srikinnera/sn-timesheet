@@ -3,13 +3,14 @@ import {TimeSheetResponseType, PostTimeSheetType, UserInfoType, AccessTokenObj} 
 
 export const fetchTimesheets = async(id: number, date: Dayjs):Promise<TimeSheetResponseType[]> => {
         const dateToFetch = date.format("YYYY-MM-DD");
-        const response = await fetch(`http://localhost:8080/timesheets/${id}/${dateToFetch}`, {method : 'GET'})
+        console.log('date', dateToFetch);
+        const response = await fetch(`http://54.183.80.214:8080/timesheets/${id}/${dateToFetch}`, {method : 'GET'})
         if(!response?.ok) throw new Error(response.statusText);
         return response.json() as Promise<TimeSheetResponseType[]>;
 }
 
 export const saveTimesheet = async(data: PostTimeSheetType):Promise<Response> => {
-        return await fetch(`http://localhost:8080/timesheets`, {
+        return await fetch(`http://54.183.80.214:8080/timesheets`, {
                 method : 'POST', 
                 headers: {
                         "Content-Type": "application/json",
@@ -19,7 +20,7 @@ export const saveTimesheet = async(data: PostTimeSheetType):Promise<Response> =>
 }
 
 export const loginUser = async(userObj: UserInfoType):Promise<AccessTokenObj> =>{
-        const response = await fetch(`http://localhost:8080/auth/login`, {
+        const response = await fetch(`http://54.183.80.214:8080/auth/login`, {
                 method : 'POST', 
                 headers: {
                         "Content-Type": "application/json",

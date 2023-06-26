@@ -45,7 +45,7 @@ export const TimesheetForm = ():JSX.Element => {
            console.log(data);
            setSnackbar(true);
            reset();
-           setRate(0);
+           handleRateChange(0);
            setDescription('');
      },
        onError: () => {
@@ -102,7 +102,7 @@ export const TimesheetForm = ():JSX.Element => {
                         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {setDescription(event?.target.value)}}
                         style={{'margin': '10px 0 0 0'}}
                 />
-                <Rate handleRateChange={handleRateChange} />
+                <Rate handleRateChange={handleRateChange} value={rate} />
             </FormElements>
             <Card>
                 <Form onSubmit={handleSubmit((data: any) => postFormData(data))}>

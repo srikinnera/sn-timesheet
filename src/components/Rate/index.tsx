@@ -2,7 +2,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import { RateContainer } from './styled';
 
-export const Rate = ({handleRateChange}: {handleRateChange: (amount:number) => void}):JSX.Element => {
+export const Rate = ({handleRateChange, value}: {handleRateChange: (amount:number) => void, value: number}):JSX.Element => {
     return(
         <RateContainer>
              <TextField
@@ -17,7 +17,8 @@ export const Rate = ({handleRateChange}: {handleRateChange: (amount:number) => v
                 InputProps={{
                     startAdornment: <InputAdornment position="start">$</InputAdornment>
                 }}
-                type='number'
+                type='number'   
+                value={value}   
             />
         </RateContainer>
     )

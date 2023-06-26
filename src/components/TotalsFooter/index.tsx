@@ -12,7 +12,7 @@ export const TotalsFooter = ({values, rate}: {values: TimeSheetForm, rate:number
         return prev
     }, 0);
 
-    let totalCost = rate * totalTime;
+    let totalCost = rate ? rate * totalTime: 0;
 
     return (
         <TotalsContainer>
