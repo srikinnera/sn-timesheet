@@ -18,10 +18,9 @@ export const FormContainer = styled.div`
 
 export const SubmitButton = styled.button`
     width: 200px;
-    position: absolute;
-    left: 37%;
     height: 50px;
-    margin: 25px 10px 10px 10px;
+    display: block;
+    margin: 0 auto;
     background-color: green;
     color: white;
     border: none;

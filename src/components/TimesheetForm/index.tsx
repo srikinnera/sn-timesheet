@@ -22,7 +22,7 @@ import { saveTimesheet } from '../../services';
 
 
 export const TimesheetForm = ():JSX.Element => {
-    const [description, setDescription] = useState<string>('');
+    const [description, setDescription] = useState<string>('My Timesheet');
     const [rate, setRate] = useState<number>(0);
     const [openSnackbar, setSnackbar] = useState<boolean>(false);
     const queryClient = useQueryClient();

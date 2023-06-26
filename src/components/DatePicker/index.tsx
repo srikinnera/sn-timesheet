@@ -9,7 +9,7 @@ export const DatePicker = ({field}: {field: ControllerRenderProps<TimeSheetForm,
     return (
         <DatePickerContainer>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateComponent label="Date" onChange={(value) => field.onChange(value)}/>
+                <DateComponent label="Date" onChange={(value) => field.onChange(value)} data-testid="date-picker" />
             </LocalizationProvider>
         </DatePickerContainer>
     )
